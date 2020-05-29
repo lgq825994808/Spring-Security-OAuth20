@@ -34,7 +34,7 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <scope>provided</scope>
+            <!--<scope>provided</scope>-->
         </dependency>
         <!--jsp页面使用jstl标签 -->
         <dependency>
@@ -43,15 +43,15 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
-        </dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-tomcat</artifactId>
+       <!-- <scope>provided</scope>-->
+    </dependency>
         <!--用于编译jsp -->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
-            <scope>provided</scope>
+           <!-- <scope>provided</scope>-->
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -76,7 +76,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>spring-boot-security-</finalName>
+        <finalName>security-springboot</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -110,6 +110,13 @@
                                 <directory>src/main/java</directory>
                                 <includes>
                                     <include>**/*.xml</include>
+                                </includes>
+                            </resource>
+                            <resource>
+                                <directory>src/main/webapp</directory>
+                                <targetPath>META-INF/resources</targetPath>
+                                <includes>
+                                    <include>**/**</include>
                                 </includes>
                             </resource>
                         </resources>

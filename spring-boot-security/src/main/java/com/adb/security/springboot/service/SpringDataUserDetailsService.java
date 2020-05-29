@@ -12,8 +12,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * @author Administrator
+ * @author
  * @version 1.0
+ * security 验证用户名和密码的类，需要自己实现，
+ * 只需实现UserDetailsService接口，实现里面的loadUserByUsername方法即可
  **/
 @Service
 public class SpringDataUserDetailsService implements UserDetailsService {
@@ -32,11 +34,11 @@ public class SpringDataUserDetailsService implements UserDetailsService {
             return null;
         }
         //根据用户的id查询用户的权限
-        List<String> permissions = userDao.findPermissionsByUserId(userDto.getId());
+      /*  List<String> permissions = userDao.findPermissionsByUserId(userDto.getId());
         //将permissions转成数组
         String[] permissionArray = new String[permissions.size()];
-        permissions.toArray(permissionArray);
-        UserDetails userDetails = User.withUsername(userDto.getUsername()).password(userDto.getPassword()).authorities(permissionArray).build();
+        permissions.toArray(permissionArray);*/
+        UserDetails userDetails = User.withUsername(userDto.getUsername()).password(userDto.getPassword()).authorities("p1").build();
         return userDetails;
     }
 }
