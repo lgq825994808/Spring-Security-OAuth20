@@ -34,11 +34,11 @@ public class SpringDataUserDetailsService implements UserDetailsService {
             return null;
         }
         //根据用户的id查询用户的权限
-      /*  List<String> permissions = userDao.findPermissionsByUserId(userDto.getId());
+        List<String> permissions = userDao.findPermissionsByUserId(userDto.getId());
         //将permissions转成数组
         String[] permissionArray = new String[permissions.size()];
-        permissions.toArray(permissionArray);*/
-        UserDetails userDetails = User.withUsername(userDto.getUsername()).password(userDto.getPassword()).authorities("p1").build();
+        permissions.toArray(permissionArray);
+        UserDetails userDetails = User.withUsername(userDto.getUsername()).password(userDto.getPassword()).authorities(permissionArray).build();
         return userDetails;
     }
 }
