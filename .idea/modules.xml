@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Spring-Security-OAuth20.iml" filepath="$PROJECT_DIR$/Spring-Security-OAuth20.iml" />
+      <module fileurl="file://$PROJECT_DIR$/distributed-security-order/distributed-security-order.iml" filepath="$PROJECT_DIR$/distributed-security-order/distributed-security-order.iml" />
+      <module fileurl="file://$PROJECT_DIR$/distributed-security-uaa/distributed-security-uaa.iml" filepath="$PROJECT_DIR$/distributed-security-uaa/distributed-security-uaa.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-security/spring-boot-security.iml" filepath="$PROJECT_DIR$/spring-boot-security/spring-boot-security.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-security/spring-security.iml" filepath="$PROJECT_DIR$/spring-security/spring-security.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-session/spring-session.iml" filepath="$PROJECT_DIR$/spring-session/spring-session.iml" />
