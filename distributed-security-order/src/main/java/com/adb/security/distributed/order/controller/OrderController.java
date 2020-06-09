@@ -12,6 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class OrderController {
 
+    @GetMapping(value = "/r1")
+    @PreAuthorize("hasAuthority('p1')")//拥有p1权限方可访问此url
+    public String r1(){
+        //获取用户身份信息
+        return "访问资源1";
+    }
+
    /* @GetMapping(value = "/r1")
     @PreAuthorize("hasAuthority('p1')")//拥有p1权限方可访问此url
     public String r1(){

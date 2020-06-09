@@ -45,7 +45,7 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
                 .redirectUris("http://www.baidu.com");
     }
 
-
+    //令牌存储策略
     @Bean
     public AuthorizationServerTokenServices tokenService() {
         DefaultTokenServices service=new DefaultTokenServices();
