@@ -30,22 +30,22 @@ public class ResouceServerConfig extends ResourceServerConfigurerAdapter {
     public void configure(ResourceServerSecurityConfigurer resources) {
         resources.resourceId(RESOURCE_ID)//资源 id
                 .tokenStore(tokenStore)
-               .tokenServices(tokenService())//验证令牌的服务
+//               .tokenServices(tokenService())//验证令牌的服务
                 .stateless(true);
     }
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-
         http
-                .authorizeRequests()
-                .antMatchers("/**").access("#oauth2.hasScope('all')")
-                .and().csrf().disable()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+            .authorizeRequests()
+            .antMatchers("/**").access("#oauth2.hasScope('all')")
+            .and().csrf().disable()
+            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
-    //资源服务令牌解析服务
-    @Bean
+    //资源服务令牌解析服务（用于去远程校验token是否合法）
+    //使用了jwt令牌后，就不需要去远程（去授权中心）校验token了，因为jwt令牌里面包含了用户的信息
+    /*@Bean
     public ResourceServerTokenServices tokenService() {
         //使用远程服务请求授权服务器校验token,必须指定校验token 的url、client_id，client_secret
         RemoteTokenServices service=new RemoteTokenServices();
@@ -53,6 +53,6 @@ public class ResouceServerConfig extends ResourceServerConfigurerAdapter {
         service.setClientId("c1");
         service.setClientSecret("secret");
         return service;
-    }
+    }*/
 
 }

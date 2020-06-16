@@ -14,7 +14,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
-    //安全拦截机制（最重要）
+    //安全拦截机制（用于拦截设置该服务的接口访问权限）
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
