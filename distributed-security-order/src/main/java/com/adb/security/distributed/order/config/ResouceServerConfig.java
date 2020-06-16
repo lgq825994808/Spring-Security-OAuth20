@@ -29,8 +29,8 @@ public class ResouceServerConfig extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) {
         resources.resourceId(RESOURCE_ID)//资源 id
-                .tokenStore(tokenStore)
-//               .tokenServices(tokenService())//验证令牌的服务
+                .tokenStore(tokenStore)//使用jwt令牌（不用远程验证，令牌本身就携带了用户信息）
+//               .tokenServices(tokenService())//验证令牌的服务(远程验证)
                 .stateless(true);
     }
 

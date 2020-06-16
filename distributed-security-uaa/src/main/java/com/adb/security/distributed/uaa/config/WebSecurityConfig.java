@@ -28,8 +28,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    /*public static void main(String[] args) {
-        String encode = new BCryptPasswordEncoder().encode("123");
+   /* public static void main(String[] args) {
+        String encode = new BCryptPasswordEncoder().encode("secret");
         System.out.println(encode);
     }*/
     //安全拦截机制（最重要）
