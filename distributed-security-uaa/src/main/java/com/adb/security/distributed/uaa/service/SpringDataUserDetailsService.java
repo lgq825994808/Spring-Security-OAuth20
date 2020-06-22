@@ -3,6 +3,7 @@ package com.adb.security.distributed.uaa.service;
 
 import com.adb.security.distributed.uaa.dao.UserDao;
 import com.adb.security.distributed.uaa.model.UserDto;
+import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -39,7 +40,10 @@ public class SpringDataUserDetailsService implements UserDetailsService {
         //将permissions转成数组
         String[] permissionArray = new String[permissions.size()];
         permissions.toArray(permissionArray);
-        UserDetails userDetails = User.withUsername(userDto.getUsername()).password(userDto.getPassword()).authorities(permissionArray).build();
+        //这里将user转为json，将整体user存入userDetails
+        //将用户的所有信息转成存入userName属性，需要用户信息时，在转成对象（属于偷懒行为）
+        String principal =JSON.toJSONString(userDto);
+        UserDetails userDetails = User.withUsername(principal).password(userDto.getPassword()).authorities(permissionArray).build();
         return userDetails;
     }
 }
